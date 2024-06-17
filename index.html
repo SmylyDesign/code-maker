@@ -67,11 +67,13 @@
           alert("テキストを入力してください。");
           return;
         }
+        // テキストをURLエンコード
+        var encodedText = encodeURIComponent(text);
         // QRコード要素をクリア
         $("#qrcode").empty(); 
         // 新しいQRコードを生成
         new QRCode(document.getElementById("qrcode"), {
-          text: text,
+          text: encodedText, // エンコードしたテキストを使用
           width: 256,
           height: 256,
           colorDark: "#000000",
